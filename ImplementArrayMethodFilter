@@ -1,0 +1,11 @@
+function filter<T, U>(array: T[], predicat: (currentValue: T, index: number, originalArray: T[]) => U): U[] {
+  return array.reduce((acc, current, index, originalArray) => {
+    const isAdded = predicat(current, index, originalArray)
+    
+    if(isAdded) {
+      acc.push(current)
+    }
+
+    return acc
+  }, [])
+}
