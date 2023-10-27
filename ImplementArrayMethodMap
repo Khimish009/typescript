@@ -1,0 +1,6 @@
+function map<T, U>(array: T[], mapper: (currentValue: T, index: number, originalArray: T[]) => U): U[] {
+  return array.reduce((acc, current, index, originalArray) => {
+    acc.push(mapper(current, index, originalArray))
+    return acc
+  }, []);
+}
